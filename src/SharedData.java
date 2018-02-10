@@ -1,20 +1,28 @@
 import java.util.concurrent.Semaphore;
 
+/**
+ * SharedDate class contains data shared between {@link Bus} and {@link Rider}
+ * */
 public class SharedData {
-    private Semaphore allAboard = new Semaphore(0);
+
+    //variable to store rider count
+    private int riders = 0;
+
+    //semaphore indicating the maximum number of riders allowed to board to the bus
     private Semaphore multiplex = new Semaphore(50);
+
+    //semaphore used in place of the mutex controlling access to rider count
     private Semaphore mutex = new Semaphore(1);
+
+    //semaphore used to indicate bus arrival
     private Semaphore busArrival = new Semaphore(0);
 
+    //semaphore used to indicate all passengers have boarded to the bus
+    private Semaphore allAboard = new Semaphore(0);
 
-    private int riders = 0;
 
     public Semaphore getBusArrival() {
         return busArrival;
-    }
-
-    public void setBusArrival(Semaphore busArrival) {
-        this.busArrival = busArrival;
     }
 
     public Semaphore getAllAboard() {
@@ -25,20 +33,9 @@ public class SharedData {
         return mutex;
     }
 
-    public void setMutex(Semaphore mutex) {
-        this.mutex = mutex;
-    }
-
-    public void setAllAboard(Semaphore allAboard) {
-        this.allAboard = allAboard;
-    }
 
     public Semaphore getMultiplex() {
         return multiplex;
-    }
-
-    public void setMultiplex(Semaphore multiplex) {
-        this.multiplex = multiplex;
     }
 
     public int getRiders() {
@@ -46,7 +43,7 @@ public class SharedData {
 
     }
 
-    public void setRiders() {
+    public void incrementRiders() {
         riders = riders + 1;
     }
 
