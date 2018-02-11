@@ -3,7 +3,7 @@
  * */
 
 public class BusCreator extends Thread{
-    private final int BUS_MEAN_ARRIVAL_TIME = 1200000; //mean arrival time of a bus
+    private final int BUS_MEAN_ARRIVAL_TIME = 120000; //mean arrival time of a bus
     private SharedData sharedData;
     private int busID = 0;
 

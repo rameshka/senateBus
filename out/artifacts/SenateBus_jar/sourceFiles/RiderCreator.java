@@ -5,7 +5,7 @@
 
 public class RiderCreator extends Thread{
 
-    private final int RIDER_MEAN_ARRIVAL_TIME = 30000; //mean arrival time between riders
+    private final int RIDER_MEAN_ARRIVAL_TIME = 3000; //mean arrival time between riders
     private SharedData sharedData;
     private int riderID=0;//uniquely identifies a rider
 
